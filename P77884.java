@@ -13,7 +13,6 @@ public class P77884 {
 	    			answer = answer-(2*(int)Math.pow(i,2));
 	    		}	    		
 	    	}
-	    	System.out.println(3.0>3);
 	        
 	        return answer;
 	    }
