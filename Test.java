@@ -1,20 +1,29 @@
-		
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 public class Test {
 	public static void main(String[] args) {
-		String s = "try hello world";
-        String[] splits = s.split("");
-        String answer = "";
-        int cnt = 0;
-        for(int i=0; i<splits.length; i++){
-            if(cnt%2==0){
-                answer += splits[i].toUpperCase();
-            } else answer += splits[i];
-            if(splits[i].equals(" ")) cnt=0;
-            else cnt++;
-            System.out.println(i+"번째 : "+cnt+" : "+answer);
-        } 
-        System.out.println(answer);
-	        
-	    }   
+		String s = null;
+		
+		List<Integer> flist = new ArrayList<>();
+		flist.toArray();
+		
+		
+		HashMap<Integer, String> map = new HashMap<>();
+		char[] a = s.toCharArray();
+		int[] sortorder = new int[a.length];
+		for(int i=0; i<a.length; i++) {
+			map.put((int)a[i], String.valueOf(a[i]));
+			sortorder[i] = (int)a[i];					
+		}
+		Arrays.sort(sortorder);
+		for(int i=sortorder.length; i>0; i--) {
+			answer += map.get(sortorder[i]);
+		}
+		
+		
+		
 	}
-
+}
