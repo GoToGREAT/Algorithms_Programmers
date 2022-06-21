@@ -4,15 +4,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 
-
-// 오류 발생 : 중복되는 확률이 있을 시 앞선 스테이지 번호를 찾지 못함.
-public class P42889 {
+// 아무도 도전하지 못한 스테이지 처리 후 통과
+public class P42889_1 {
 	public static void main(String[] args) {
 		int N = 5;
 		int[] stages = {2, 1, 2, 6, 2, 4, 3, 3};
-		int[] result = {3,4,2,1,5};
 		
-		Solutionz s = new Solutionz();
+		Solutionr s = new Solutionr();
 		int[] fi =  s.solution(N, stages);
 		for(int i=0; i<fi.length; i++) {
 			System.out.println(fi[i]);
@@ -20,16 +18,16 @@ public class P42889 {
 	}	
 }
 
-class Solutionz {
+class Solutionr {
     public int[] solution(int N, int[] stages) {
             Arrays.sort(stages);
         
             double[] percent = new double[N];
-            HashMap<Double, Integer> map = new HashMap<Double, Integer>();
+            HashMap<Integer, Double> map = new HashMap<>();
             int[] answer = new int[N];
         
             int full = 0; // stage 어디부터 시작할지 정하기
-            int a = stages.length; // 분모        
+            int a = stages.length; // 분모
         
             for(int i=0; i<N;i++){                
                 int cnt = 0;
@@ -44,14 +42,28 @@ class Solutionz {
                 System.out.println(cnt);
                 percent[i] =(double) cnt/a ;
                 System.out.println(i+" / "+cnt+"나누기"+a+" = "+percent[i]);
-                map.put(percent[i],i+1);
+                map.put(i+1,percent[i]);
                 a-=cnt;
+                
+                if(a<0 || a==0) {
+                	for(int q=i+1; q<N; q++) {
+                		percent[q] =(double) 0 ;
+                		map.put(q+1,percent[q]);
+                	}
+                	break;
+                }
             }
             
             Arrays.sort(percent);
                
             for(int i=0; i<percent.length; i++){
-                answer[i] = map.get(percent[N-i-1]);
+            	for(int k=0; k<map.size(); k++) {
+            		if(map.get(k+1)==percent[N-i-1]) {
+            			answer[i] = k+1;
+            			map.replace(k+1, -1.0);
+            			break;            			
+            		}
+            	}
             }        
         
 	        return answer;
