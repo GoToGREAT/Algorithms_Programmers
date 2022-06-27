@@ -1,11 +1,10 @@
-package programmers;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
 
 
-// ¿À·ù ¹ß»ý : Áßº¹µÇ´Â È®·üÀÌ ÀÖÀ» ½Ã ¾Õ¼± ½ºÅ×ÀÌÁö ¹øÈ£¸¦ Ã£Áö ¸øÇÔ.
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ : ï¿½ßºï¿½ï¿½Ç´ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Õ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 public class P42889 {
 	public static void main(String[] args) {
 		int N = 5;
@@ -28,8 +27,8 @@ class Solutionz {
             HashMap<Double, Integer> map = new HashMap<Double, Integer>();
             int[] answer = new int[N];
         
-            int full = 0; // stage ¾îµðºÎÅÍ ½ÃÀÛÇÒÁö Á¤ÇÏ±â
-            int a = stages.length; // ºÐ¸ð        
+            int full = 0; // stage ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
+            int a = stages.length; // ï¿½Ð¸ï¿½        
         
             for(int i=0; i<N;i++){                
                 int cnt = 0;
@@ -43,7 +42,7 @@ class Solutionz {
                 full += cnt;
                 System.out.println(cnt);
                 percent[i] =(double) cnt/a ;
-                System.out.println(i+" / "+cnt+"³ª´©±â"+a+" = "+percent[i]);
+                System.out.println(i+" / "+cnt+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+a+" = "+percent[i]);
                 map.put(percent[i],i+1);
                 a-=cnt;
             }

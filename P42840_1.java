@@ -38,7 +38,7 @@ public class P42840_1 {
 	     	Object[] t = score.values().toArray();
 	     	
 	     	for(int i=0; i<score.size(); i++) {
-	     		answer[i] = score.get
+	     		answer[i] = score.get(t);
 	     	}	     	
 	        return answer;
 	    }
