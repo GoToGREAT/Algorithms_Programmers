@@ -1,7 +1,7 @@
 public class P62048_Test {	
 	public static void main(String[] args) {
-		int w = 8;
-		int h = 12;
+		int w = 3;
+		int h = 15233730;
 				
 		int lon = w>=h? w : h;
 	 	int shor = w>=h? h : w;
