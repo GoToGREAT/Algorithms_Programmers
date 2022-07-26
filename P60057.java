@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class P60057 {
 	class Solution {
@@ -42,9 +40,8 @@ public class P60057 {
 	    				len[i] += 1+b;
 	    				
 	    			} else if(boo.get(q)==false && boo.get(q+1)==false) {
-	    				len[i] += b;
-	    				
-	    			}
+	    				len[i] += b;	    				
+	    			} 
 	    		}
 	    		
 	    	}
