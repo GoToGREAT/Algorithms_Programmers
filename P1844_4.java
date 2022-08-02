@@ -1,0 +1,81 @@
+import java.util.*;
+
+/*
+채점 결과
+정확성: 62.4
+효율성: 30.1
+합계: 92.5 / 100.0
+
+test를 통해 비교식 오류 찾아냄.
+ */
+
+public class P1844_4 {
+	class Solution {
+	    public int solution(int[][] maps) {
+	    	int max_x = maps.length;
+	    	int max_y = maps[0].length;
+	    	
+	    	Integer[][] cost = new Integer[max_x][max_y];
+	    	cost[0][0]=1;
+	    	Stack<Integer[]> now_stack = new Stack<>();
+	    	Stack<Integer[]> next_stack = new Stack<>();
+	    	Integer[] a = {0,0}; 
+	    	now_stack.add(a);
+	    	
+	    	int start_x = 0;
+	    	int start_y = 0;
+	    	
+	    	int cnt = 2;
+	    	
+	    	while(true) {
+	    		if(start_y-1>=0 && maps[start_x][start_y-1]==1
+	    				&& (cost[start_x][start_y-1]==null)) {
+	    			Integer[] b = {start_x,start_y-1};
+	    			cost[start_x][start_y-1]=cnt;
+	    			next_stack.add(b);
+	    		} 
+	    		
+	    		if(start_x-1>=0 && maps[start_x-1][start_y]==1
+	    				&& (cost[start_x-1][start_y]==null)) {
+	    			Integer[] b = {start_x-1,start_y};
+	    			cost[start_x-1][start_y]=cnt;
+	    			next_stack.add(b);
+	    		}
+	    		
+	    			    		
+	    		if(start_x+1<max_x && maps[start_x+1][start_y]==1
+	    				&& (cost[start_x+1][start_y]==null)) {
+	    			Integer[] b = {start_x+1,start_y};
+	    			cost[start_x+1][start_y]=cnt;
+	    			next_stack.add(b);
+	    		}
+	    		
+	    		if(start_y+1<max_y && maps[start_x][start_y+1]==1
+	    				&& (cost[start_x][start_y+1]==null)) {
+	    			Integer[] b = {start_x,start_y+1};
+	    			cost[start_x][start_y+1]=cnt;
+	    			next_stack.add(b);
+	    		}
+	    		
+	    		if(cost[max_x-1][max_y-1]!=null) {
+    				return cost[max_x-1][max_y-1];
+	    	     }
+	    		
+	    		if(!now_stack.isEmpty()) {
+	    			Integer[] c = now_stack.pop();
+	    			start_x = c[0];
+	    	    	start_y = c[1];
+	    	    	cnt = cost[c[0]][c[1]]+1;	
+	    		} else {
+	    			if(!next_stack.isEmpty()) {
+	    				now_stack = next_stack;
+	    				next_stack = new Stack<>();
+	    			} else if(cost[max_x-1][max_y-1]==null) {
+	    				return -1;
+	    			}
+	    		}	    
+	    	}
+	    	
+	    }
+	}
+}
