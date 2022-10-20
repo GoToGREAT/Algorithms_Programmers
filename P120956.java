@@ -9,8 +9,12 @@ public class P120956 {
 	        	String word = babbling[i];
 	        	int now = 0;
 	        	while(true) {
+	        		int a = word.indexOf(can[now]);
+	        		int b = word.replaceFirst(can[now], "").indexOf(can[now]);
+	        		if(a-b == 0 && a != -1) break;
+	        		
 	        		word = word.replaceAll(can[now], "");
-	        		if(word=="" || word.equals("") || word.isBlank()) {
+	        		if(word.isBlank()) {
 	        			answer++;
 	        			break;
 	        		}
