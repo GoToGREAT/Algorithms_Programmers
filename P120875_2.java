@@ -4,12 +4,12 @@ import java.util.*;
 정확성: 91.7
 합계: 91.7 / 100.0
 
-hashmap 과 list 모두 string을 주소값으로만 비교
+모든 직선이 동일한 경우 또는 분모가 0인 경우 고려 못해줌
 */
-public class P120875_1 {
+public class P120875_2 {
 	class Solution {
 	    public int solution(int[][] dots) {
-	        List<String> list = new LinkedList<String>();
+	        List<Double> list = new LinkedList<Double>();
 	        
 	        for(int i=0; i<dots.length-1; i++) {
 	        	for(int q=i+1; q<dots.length; q++) {
@@ -26,8 +26,7 @@ public class P120875_1 {
 	        			}
 	        		}
 	        		
-	        		String now = Integer.toString(son)+"/"+Integer.toString(mother);
-	        		
+	        		Double now = son / (double)mother;	        		
 	        		if(list.contains(now)) return 1;
 	        		else list.add(now);
 	        	}
