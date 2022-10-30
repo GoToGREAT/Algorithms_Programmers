@@ -1,7 +1,7 @@
 import java.util.*;
 
 // 속도가 너무 느림
-public class P1829_2 {
+public class P1829_1 {
 	class Solution {
 	    public int[] solution(int m, int n, int[][] picture) {
 	    	boolean[][] boo = new boolean[m][n];

@@ -2,7 +2,7 @@ import java.util.*;
 
 // 참조자료형은 주소값 전달해주는거 신기하다.
 // 편리하다.
-public class P1829_1 {
+public class P1829_2 {
 	class Solution {
 	    public int[] solution(int m, int n, int[][] picture) {
 	    	boolean[][] boo = new boolean[m][n];
